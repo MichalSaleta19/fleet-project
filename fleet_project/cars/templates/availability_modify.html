@@ -1,0 +1,10 @@
+{% extends "__base__.html" %}
+{% block title %}Modyfikuj Dostępność{% endblock title %}
+{% block content %}
+    <h1>Modyfikuj Dostępność</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+{% endblock content %}

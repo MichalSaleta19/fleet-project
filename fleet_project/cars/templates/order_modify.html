@@ -1,0 +1,39 @@
+{% extends "__base__.html" %}
+{% block title %}Modyfikuj Zamówienie{% endblock title %}
+{% block content %}
+    <h1>Modyfikuj Zamówienie</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="pickup_date">Data rozpoczęcia:</label>
+            <input type="datetime-local" id="pickup_date" name="pickup_date" class="form-control" value="{{ order.pickup_date }}">
+        </div>
+        <!-- Pole wyboru klienta -->
+        <div class="form-group">
+            <label for="client">Wybierz klienta:</label>
+            <select id="client" name="client" class="form-control">
+                {% for client in clients %}
+                    <option value="{{ client.id }}" {% if client.id == order.client.id %} selected {% endif %}>{{ client.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Dodaj inne pola formularza -->
+        <div id="calendar"></div>
+        <!-- Tutaj możesz dodać inne pola formularza -->
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+
+    <!-- Importowanie biblioteki FullCalendar -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                // Dodaj inne opcje konfiguracyjne, jeśli są potrzebne
+            });
+            calendar.render();
+        });
+    </script>
+{% endblock content %}

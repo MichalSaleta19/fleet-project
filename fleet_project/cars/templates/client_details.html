@@ -1,0 +1,17 @@
+{% extends "__base__.html" %}
+{% block title %}Szczegóły klienta{% endblock title %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Szczegóły klienta</h1>
+    <p><strong>First Name:</strong> {{ client.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ client.last_name }}</p>
+    <p><strong>Address:</strong> {{ client.address }}</p>
+    <p><strong>Email:</strong> {{ client.email }}</p>
+    <p><strong>Phone Number:</strong> {{ client.phone_number }}</p>
+    <p><strong>Driver License Number:</strong> {{ client.driver_license_number }}</p>
+    {% if client|instanceof:"VIPClient" %}
+        <p><strong>Discount Percentage:</strong> {{ client.discount_percentage }}</p>
+    {% endif %}
+    <a href="{% url 'delete_client' client.id %}">Delete</a>
+</div>
+{% endblock content %}

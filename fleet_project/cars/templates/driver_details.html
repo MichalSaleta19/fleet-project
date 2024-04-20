@@ -1,0 +1,12 @@
+{% extends "__base__.html" %}
+{% block title %}Szczegóły Kierowcy{% endblock title %}
+{% block content %}
+    <h1>Szczegóły Kierowcy</h1>
+    <p>Imię: {{ driver.first_name }}</p>
+    <p>Nazwisko: {{ driver.last_name }}</p>
+    <p>Data zatrudnienia: {{ driver.hire_date }}</p>
+    <p>Pensja: {{ driver.salary }}</p>
+    <p>Numer telefonu: {{ driver.phone_number }}</p>
+    <p>Adres email: {{ driver.email }}</p>
+
+{% endblock content %}

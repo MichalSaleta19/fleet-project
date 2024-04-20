@@ -1,0 +1,10 @@
+{% extends "__base__.html" %}
+{% block title %}Modyfikuj Historię Serwisu{% endblock title %}
+{% block content %}
+    <h1>Modyfikuj Historię Serwisu</h1>
+    <form method="post" id="service-history-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+    </form>
+{% endblock content %}

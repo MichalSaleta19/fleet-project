@@ -1,0 +1,9 @@
+{% extends "__base__.html" %}
+{% block title %}Szczegóły Historii Serwisu{% endblock title %}
+{% block content %}
+    <h1>Szczegóły Historii Serwisu</h1>
+    <p>Data Serwisu: {{ service_history.service_date }}</p>
+    <p>Opis: {{ service_history.description }}</p>
+    <p>Koszt: {{ service_history.cost }}</p>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "__base__.html" %}
+{% block title %}Lista Zamówień{% endblock title %}
+{% block content %}
+    <h1>Lista Zamówień</h1>
+    <ul>
+    {% for order in orders %}
+        <li>{{ order.description }}</li>
+            <form action="{% url 'order_delete' order.pk %}" method="post" style="display: inline;">
+                {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Usuń</button>
+            </form>
+    {% empty %}
+        <li>Brak zamówień</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

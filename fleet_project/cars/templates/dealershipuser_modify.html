@@ -1,0 +1,10 @@
+{% extends "__base__.html" %}
+{% block title %}Modyfikuj Użytkownika Dealership{% endblock title %}
+{% block content %}
+    <h1>Modyfikuj Użytkownika Dealership</h1>
+    <form method="post" id="dealer-user-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+    </form>
+{% endblock content %}

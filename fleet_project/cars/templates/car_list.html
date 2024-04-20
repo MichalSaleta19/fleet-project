@@ -1,0 +1,27 @@
+{% extends "__base__.html" %}
+{% block title %}Lista Samochodów{% endblock title %}
+{% block content %}
+    <h1>Lista Samochodów</h1>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.brand }} {{ car.model }}</li>
+            <li>Rok produkcji: {{ car.year }}</li>
+            <li>Modelowy rok produkcji: {{ car.model_year }}</li>
+            <li>Liczba siedzeń: {{ car.seats }}</li>
+            <li>Kolor: {{ car.color }}</li>
+            <li>
+                {% if car.needs_service %}
+                    <span style="color: red;">Wymaga przeglądu!</span>
+                {% else %}
+                    W dobrym stanie
+                {% endif %}
+            </li>
+            <li>
+                <a href="{% url 'car_details' car.pk %}">Szczegóły</a> |
+                <a href="{% url 'car_modify' car.pk %}">Edytuj</a> |
+                <a href="{% url 'car_delete' car.pk %}">Usuń</a>
+                <a href="{% url 'order_add' car.pk %}">Zarezerwuj</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

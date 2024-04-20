@@ -1,0 +1,48 @@
+{% extends "__base__.html" %}
+{% block title %}Dodaj Zamówienie{% endblock title %}
+{% block content %}
+    <h1>Dodaj Zamówienie</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="pickup_date">Data rozpoczęcia:</label>
+            <input type="date" id="pickup_date" name="pickup_date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="return_date">Data zakończenia:</label>
+            <input type="date" id="return_date" name="return_date" class="form-control">
+        </div>
+
+        <div id="calendar"></div>
+
+        <button type="submit">Dodaj</button>
+    </form>
+
+    <!-- Importowanie biblioteki FullCalendar -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var availabilities = JSON.parse('{{ availabilities | safe }}');
+        var events = availabilities.map(function(availability) {
+            return {
+                title: 'Available',
+                start: availability.start_date,
+                end: availability.end_date,
+                backgroundColor: 'green'
+            };
+        });
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            validRange: {
+                start: tommorow
+            },
+            fixedWeekCount: true,
+            events: events
+        });
+        calendar.render();
+    });
+</script>
+{% endblock content %}

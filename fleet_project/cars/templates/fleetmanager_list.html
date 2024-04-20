@@ -1,0 +1,14 @@
+{% extends "__base__.html" %}
+{% block title %}Lista Menedżerów Floty{% endblock title %}
+{% block content %}
+    <h1>Lista Menedżerów Floty</h1>
+    <ul>
+        {% for fleetmanager in object_list %}
+            <li>{{ fleetmanager }}</li>
+            <form action="{% url 'fleetmanager_delete' fleetmanager.pk %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Usuń</button>
+            </form>
+        {% endfor %}
+    </ul>
+{% endblock content %}

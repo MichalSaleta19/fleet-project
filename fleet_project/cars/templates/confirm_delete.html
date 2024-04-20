@@ -1,0 +1,9 @@
+{% extends "__base__.html" %}
+{% block title %}Potwierdź Usunięcie{% endblock title %}
+{% block content %}
+    <h1>Czy na pewno chcesz usunąć ten obiekt?</h1>
+    <form action="{{ action_url }}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Usuń">
+    </form>
+{% endblock content %}

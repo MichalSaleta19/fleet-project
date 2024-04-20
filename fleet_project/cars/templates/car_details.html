@@ -1,0 +1,34 @@
+{% extends "__base__.html" %}
+{% block title %}Szczegóły Samochodu{% endblock title %}
+{% block content %}
+    <h1>Szczegóły Samochodu</h1>
+    <ul>
+        <li>Marka: {{ car.brand }}</li>
+        <li>Model: {{ car.model }}</li>
+        <li>Rok Produkcji: {{ car.year }}</li>
+        <li>Modelowy Rok Produkcji: {{ car.model_year }}</li>
+        <li>Numer VIN: {{ car.vin_number }}</li>
+        <li>Przebieg: {{ car.mileage }}</li>
+        <li>Numer rejestracyjny: {{ car.registration_number }}</li>
+        <li>Rodzaj nadwozia: {{ car.body_type }}</li>
+        <li>Rodzaj napędu: {{ car.fuel_type }}</li>
+        <li>Pojemność silnika: {{ car.engine_capacity }}</li>
+        <li>Moc układu napędowego: {{ car.engine_power }}</li>
+        <li>Spalanie cykl niski: {{ car.fuel_consumption_1 }}</li>
+        <li>Spalanie cykl średni: {{ car.fuel_consumption_2 }}</li>
+        <li>Spalanie cykl wysoki: {{ car.fuel_consumption_3 }}</li>
+        <li>Kolor nadwozia: {{ car.color }}</li>
+        <li>Stan techniczny: {{ car.technical_condition }}</li>
+        <li>Dodatkowe wyposażenie: {{ car.equipment_list }}</li>
+        <li>Liczba siedzeń: {{ car.seats }}</li>
+        <li>Pojemność bagażnika: {{ car.trunk_space }}</li>
+        <li>Cena katalogowa: {{ car.catalog_price }}</li>
+        <li>Data ostatniego przeglądu: {{ car.last_service_date }}</li>
+        <li>Interwał przeglądu w kilometrach: {{ car.service_interval_km }}</li>
+        <li>Interwał przeglądu w miesiącach: {{ car.service_interval_months }}</li>
+        <li>Uszkodzenia: {{ car.damage }}</li>
+    </ul>
+    <a href="{% url 'car_modify' car.id %}">Modyfikuj</a>
+    <a href="{% url 'order_add' car.pk %}">Zamów</a>
+    <a href="{% url 'car_delete' car.id %}">Usuń</a>
+{% endblock content %}

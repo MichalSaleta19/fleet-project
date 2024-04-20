@@ -1,0 +1,20 @@
+{% extends "__base__.html" %}
+{% block title %}Lista Klientów{% endblock title %}
+{% block content %}
+    <h1>Lista Klientów</h1>
+    <ul>
+    {% for client in clients %}
+        <li>{{ client.first_name }} - {{ client.last_name }} - {{ client.phone_number }}
+            <form action="{% url 'client_delete' client.pk %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Usuń</button>
+            </form>
+        </li>
+        {% if car_id %}
+        <a href="{% url 'order_add' car_id=car_id client_id=client.pk %}" class="btn btn-primary">Złóż zamówienie</a>
+        {% endif %}
+    {% empty %}
+        <li>Brak klientów</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

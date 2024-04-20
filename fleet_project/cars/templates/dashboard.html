@@ -1,0 +1,20 @@
+{% extends "__base__.html" %}
+{% block title %}Dashboard{% endblock title %}
+{% block content %}
+<div class="dashboard-header m-4">
+    <div class="dashboard-alerts">
+        <div class="alert-item alert-info">
+            <i class="fas icon-circle fa-info-circle"></i>
+            <span class="font-weight-bold">Liczba pojazdów: {{ car_count }}</span>
+        </div>
+        <div class="alert-item alert-light">
+            <i class="far icon-calendar fa-calendar-alt"></i>
+            <span class="font-weight-bold">Ostatnio dodany pojazd: {{ latest_added_car.brand }} {{ latest_added_car.model }}</span>
+        </div>
+        <div class="alert-item alert-warning">
+            <i class="fas icon-circle fa-exclamation-circle"></i>
+            <span class="font-weight-bold">Samochód z największym przebiegiem: {{ car_with_max_mileage.brand }} {{ car_with_max_mileage.model }} {{ car_with_max_mileage.mileage }} km</span>
+        </div>
+    </div>
+</div>
+{% endblock content %}

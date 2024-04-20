@@ -1,0 +1,15 @@
+{% extends "__base__.html" %}
+{% block title %}Szczegóły Zamówienia{% endblock title %}
+{% block content %}
+    <h1>Szczegóły Zamówienia</h1>
+    <p>Opis: {{ order.description }}</p>
+    <p>Samochód: {{ order.car }}</p>
+    <p>Klient: {{ order.client }}</p>
+    <p>Kierowca: {{ order.driver }}</p>
+    <p>Data rozpoczęcia: {{ order.pickup_date }}</p>
+    <p>Data zakończenia: {{ order.return_date }}</p>
+    <p>Dystans: {{ order.distance }}</p>
+    <p>Koszt: {{ order.cost }}</p>
+    <p>Nowe uszkodzenia: {% if order.new_damage %}Tak{% else %}Nie{% endif %}</p>
+    <p>Rozliczone: {% if order.settled %}Tak{% else %}Nie{% endif %}</p>
+{% endblock content %}
