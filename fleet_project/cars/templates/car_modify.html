@@ -4,7 +4,90 @@
     <h1>Modyfikuj Samochód</h1>
     <form method="post" id="car-form">
         {% csrf_token %}
-        {{ form.as_p }}
+        <label for="brand">Marka:</label>
+        <input type="text" id="brand" name="brand" value="{{ car.brand }}"><br>
+
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" value="{{ car.model }}"><br>
+
+        <label for="year">Rok produkcji:</label>
+        <input type="number" id="year" name="year" value="{{ car.year }}"><br>
+
+        <label for="model_year">Modelowy rok produkcji:</label>
+        <input type="number" id="model_year" name="model_year" value="{{ car.model_year }}"><br>
+
+        <label for="vin_number">Numer VIN:</label>
+        <input type="text" id="vin_number" name="vin_number" value="{{ car.vin_number }}"><br>
+
+        <label for="mileage">Przebieg:</label>
+        <input type="number" id="mileage" name="mileage" value="{{ car.mileage }}"><br>
+
+        <label for="registration_number">Numer rejestracyjny:</label>
+        <input type="text" id="registration_number" name="registration_number" value="{{ car.registration_number }}"><br>
+
+        <label for="body_type">Rodzaj nadwozia:</label>
+        <select id="body_type" name="body_type">
+            {% for body_type, _ in BODY_TYPES %}
+                <option value="{{ body_type }}" {% if body_type == car.body_type %} selected {% endif %}>{{ body_type }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="fuel_type">Rodzaj napędu:</label>
+        <select id="fuel_type" name="fuel_type">
+            {% for fuel_type, _ in FUEL_TYPES %}
+                <option value="{{ fuel_type }}" {% if fuel_type == car.fuel_type %} selected {% endif %}>{{ fuel_type }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="engine_capacity">Pojemność silnika:</label>
+        <input type="number" id="engine_capacity" name="engine_capacity" value="{{ car.engine_capacity }}"><br>
+
+        <label for="engine_power">Moc układu napędowego:</label>
+        <input type="number" id="engine_power" name="engine_power" value="{{ car.engine_power }}"><br>
+
+        <label for="fuel_consumption_1">Spalanie cykl niski:</label>
+        <input type="number" id="fuel_consumption_1" name="fuel_consumption_1" value="{{ car.fuel_consumption_1 }}"><br>
+
+        <label for="fuel_consumption_2">Spalanie cykl średni:</label>
+        <input type="number" id="fuel_consumption_2" name="fuel_consumption_2" value="{{ car.fuel_consumption_2 }}"><br>
+
+        <label for="fuel_consumption_3">Spalanie cykl wysoki:</label>
+        <input type="number" id="fuel_consumption_3" name="fuel_consumption_3" value="{{ car.fuel_consumption_3 }}"><br>
+
+        <label for="color">Kolor nadwozia:</label>
+        <input type="text" id="color" name="color" value="{{ car.color }}"><br>
+
+        <label for="technical_condition">Stan techniczny:</label>
+        <select id="technical_condition" name="technical_condition">
+            {% for condition, _ in TECHNICAL_CONDITION %}
+                <option value="{{ condition }}" {% if condition == car.technical_condition %} selected {% endif %}>{{ condition }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="equipment_list">Dodatkowe wyposażenie:</label>
+        <input type="text" id="equipment_list" name="equipment_list" value="{{ car.equipment_list }}"><br>
+
+        <label for="seats">Liczba siedzeń:</label>
+        <input type="number" id="seats" name="seats" value="{{ car.seats }}"><br>
+
+        <label for="trunk_space">Pojemność bagażnika:</label>
+        <input type="number" id="trunk_space" name="trunk_space" value="{{ car.trunk_space }}"><br>
+
+        <label for="catalog_price">Cena katalogowa:</label>
+        <input type="number" id="catalog_price" name="catalog_price" value="{{ car.catalog_price }}"><br>
+
+        <label for="last_service_date">Data ostatniego przeglądu:</label>
+        <input type="date" id="last_service_date" name="last_service_date" value="{{ car.last_service_date }}"><br>
+
+        <label for="service_interval_km">Interwał przeglądu w kilometrach:</label>
+        <input type="number" id="service_interval_km" name="service_interval_km" value="{{ car.service_interval_km }}" step="1000"><br>
+
+        <label for="service_interval_months">Interwał przeglądu w miesiącach:</label>
+        <input type="number" id="service_interval_months" name="service_interval_months" value="{{ car.service_interval_months }}" step="1"><br>
+
+        <label for="damage">Uszkodzenia:</label>
+        <input type="text" id="damage" name="damage" value="{{ car.damage }}"><br>
+
         <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
     </form>
 {% endblock content %}

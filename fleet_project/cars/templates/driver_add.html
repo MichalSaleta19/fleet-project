@@ -4,7 +4,34 @@
     <h1>Dodaj Kierowcę</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="first_name">Imię:</label>
+            <input type="text" id="first_name" name="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Nazwisko:</label>
+            <input type="text" id="last_name" name="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="address">Adres:</label>
+            <input type="text" id="address" name="address" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Numer telefonu:</label>
+            <input type="tel" id="phone_number" name="phone_number" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="driver_license">Numer prawa jazdy:</label>
+            <input type="text" id="driver_license" name="driver_license" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="hire_date">Data zatrudnienia:</label>
+            <input type="date" id="hire_date" name="hire_date" class="form-control">
+        </div>
         <button type="submit">Dodaj</button>
     </form>
 {% endblock content %}

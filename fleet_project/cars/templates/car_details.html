@@ -28,7 +28,7 @@
         <li>Interwał przeglądu w miesiącach: {{ car.service_interval_months }}</li>
         <li>Uszkodzenia: {{ car.damage }}</li>
     </ul>
-    <a href="{% url 'car_modify' car.id %}">Modyfikuj</a>
-    <a href="{% url 'order_add' car.pk %}">Zamów</a>
-    <a href="{% url 'car_delete' car.id %}">Usuń</a>
+    <a href="{% url 'car_modify_view' car.id %}">Modyfikuj</a>
+    <a href="{% url 'order_add_view' car.id %}">Zamów</a>
+    <a href="{% url 'car_delete_view' car.id %}">Usuń</a>
 {% endblock content %}

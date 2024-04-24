@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Lista Dostępności</h1>
     <ul>
-        {% for availability in object_list %}
+        {% for availability in availability_list %}
             <li>{{ availability.car }} - od {{ availability.start_date }} do {{ availability.end_date }}</li>
                 <form action="{% url 'availability_delete' availability.pk %}" method="post" style="display: inline;">
                 {% csrf_token %}

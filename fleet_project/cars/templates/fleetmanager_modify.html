@@ -1,10 +1,29 @@
 {% extends "__base__.html" %}
-{% block title %}Modyfikuj Menedżera Floty{% endblock title %}
+{% block title %}Modyfikuj Managera Floty{% endblock title %}
 {% block content %}
-    <h1>Modyfikuj Menedżera Floty</h1>
+    <h1>Modyfikuj Managera Floty</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="first_name">Imię:</label>
+            <input type="text" id="first_name" name="first_name" class="form-control" value="{{ fleet_manager.first_name }}">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Nazwisko:</label>
+            <input type="text" id="last_name" name="last_name" class="form-control" value="{{ fleet_manager.last_name }}">
+        </div>
+        <div class="form-group">
+            <label for="address">Adres:</label>
+            <input type="text" id="address" name="address" class="form-control" value="{{ fleet_manager.address }}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" value="{{ fleet_manager.email }}">
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Numer telefonu:</label>
+            <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ fleet_manager.phone_number }}">
+        </div>
         <button type="submit">Zapisz zmiany</button>
     </form>
 {% endblock content %}

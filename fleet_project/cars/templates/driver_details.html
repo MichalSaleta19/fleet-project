@@ -2,11 +2,13 @@
 {% block title %}Szczegóły Kierowcy{% endblock title %}
 {% block content %}
     <h1>Szczegóły Kierowcy</h1>
-    <p>Imię: {{ driver.first_name }}</p>
-    <p>Nazwisko: {{ driver.last_name }}</p>
-    <p>Data zatrudnienia: {{ driver.hire_date }}</p>
-    <p>Pensja: {{ driver.salary }}</p>
-    <p>Numer telefonu: {{ driver.phone_number }}</p>
-    <p>Adres email: {{ driver.email }}</p>
-
+    <ul>
+        <li><strong>Imię:</strong> {{ driver.first_name }}</li>
+        <li><strong>Nazwisko:</strong> {{ driver.last_name }}</li>
+        <li><strong>Adres:</strong> {{ driver.address }}</li>
+        <li><strong>Email:</strong> {{ driver.email }}</li>
+        <li><strong>Numer telefonu:</strong> {{ driver.phone_number }}</li>
+        <li><strong>Numer prawa jazdy:</strong> {{ driver.driver_license }}</li>
+        <li><strong>Data zatrudnienia:</strong> {{ driver.hire_date }}</li>
+    </ul>
 {% endblock content %}

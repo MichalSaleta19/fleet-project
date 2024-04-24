@@ -1,18 +1,25 @@
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from .models import Car, Availability
+from typing import List, Tuple, Dict
 
 
-def add_year_availability(car_id, year):
+def get_car_availability(car_id: int) -> List[Tuple[datetime.date, datetime.date, str]]:
+    """
+    Zwraca dostępność samochodu o podanym ID jako listę krotek, gdzie każda krotka zawiera
+    trzy elementy: (start_date, end_date, status).
+
+    :param car_id: ID samochodu
+    :type car_id: int
+    :return: Lista krotek zawierająca dostępność samochodu
+    :rtype: List[Tuple[datetime.date, datetime.date, str]]
+    """
     try:
-        car = Car.objects.get(pk=car_id)
-    except Car.DoesNotExist:
-        return "Samochód o podanym ID nie istnieje."
+        car_availability = Availability.objects.filter(car_id=car_id)
+    except Availability.DoesNotExist:
+        return None
 
-    # Pobranie początkowej i końcowej daty roku
-    start_date = date(year, 1, 1)
-    end_date = date(year, 12, 31)
+    availability_dict = {}
+    for availability in car_availability:
+        availability_dict[(availability.start_date, availability.end_date)] = availability.status
 
-    # Dodanie wpisu Availabiliti do danego zakresu
-    Availability.objects.create(car=car, start_date=start_date, end_date=end_date, status='Available')
-
-    return "Dostępność dla roku {} została dodana.".format(year)
+    return availability_dict

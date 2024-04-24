@@ -4,7 +4,40 @@
     <h1>Modyfikuj Dostępność</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="start_date">Data rozpoczęcia:</label>
+            <input type="date" id="start_date" name="start_date" class="form-control" value="{{ availability.start_date }}">
+        </div>
+        <div class="form-group">
+            <label for="end_date">Data zakończenia:</label>
+            <input type="date" id="end_date" name="end_date" class="form-control" value="{{ availability.end_date }}">
+        </div>
+        <!-- Add a hidden input field for the availability ID -->
+        <input type="hidden" name="availability_id" value="{{ availability.id }}">
         <button type="submit">Zapisz zmiany</button>
     </form>
+
+    <!-- FullCalendar -->
+    <div id="calendar"></div>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            // Prepare event data for FullCalendar
+            var events = [{
+                title: 'Dostępność',
+                start: '{{ availability.start_date }}',
+                end: '{{ availability.end_date }}',
+                backgroundColor: 'green'
+            }];
+
+            // Initialize FullCalendar
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: events
+            });
+            calendar.render();
+        });
+    </script>
 {% endblock content %}

@@ -2,8 +2,7 @@
 {% block title %}Szczegóły Dostępności{% endblock title %}
 {% block content %}
     <h1>Szczegóły Dostępności</h1>
-    <p><strong>Samochód:</strong> {{ object.car }}</p>
-    <p><strong>Data rozpoczęcia:</strong> {{ object.start_date }}</p>
-    <p><strong>Data zakończenia:</strong> {{ object.end_date }}</p>
-    <p><strong>Status:</strong> {{ object.get_status_display }}</p>
+    <p>Samochód: {{ availability.car }}</p>
+    <p>Data rozpoczęcia: {{ availability.start_date }}</p>
+    <p>Data zakończenia: {{ availability.end_date }}</p>
 {% endblock content %}

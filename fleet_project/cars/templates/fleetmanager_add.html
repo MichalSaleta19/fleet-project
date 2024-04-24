@@ -1,10 +1,29 @@
 {% extends "__base__.html" %}
-{% block title %}Dodaj Menedżera Floty{% endblock title %}
+{% block title %}Dodaj Managera Floty{% endblock title %}
 {% block content %}
-    <h1>Dodaj Menedżera Floty</h1>
+    <h1>Dodaj Managera Floty</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="first_name">Imię:</label>
+            <input type="text" id="first_name" name="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Nazwisko:</label>
+            <input type="text" id="last_name" name="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="address">Adres:</label>
+            <input type="text" id="address" name="address" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Numer telefonu:</label>
+            <input type="text" id="phone_number" name="phone_number" class="form-control">
+        </div>
         <button type="submit">Dodaj</button>
     </form>
 {% endblock content %}

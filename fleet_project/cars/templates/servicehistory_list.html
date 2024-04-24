@@ -3,9 +3,9 @@
 {% block content %}
     <h1>Lista Historii Serwisu</h1>
     <ul>
-        {% for history in service_histories %}
+        {% for history in service_history_list %}
             <li>{{ history.car }} - {{ history.service_date }} - Koszt: {{ history.cost }}</li>
-            <form action="{% url 'servicehistory_delete' servicehistory.pk %}" method="post" style="display: inline;">
+            <form action="{% url 'servicehistory_delete' history.pk %}" method="post" style="display: inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Usuń</button>
             </form>

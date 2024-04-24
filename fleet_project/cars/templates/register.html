@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_username">Username:</label>
+        <input type="text" name="username" id="id_username">
+
+        <label for="id_password1">Password:</label>
+        <input type="password" name="password1" id="id_password1">
+
+        <label for="id_password2">Password confirmation:</label>
+        <input type="password" name="password2" id="id_password2">
+
+        <label for="id_first_name">First name:</label>
+        <input type="text" name="first_name" id="id_first_name">
+
+        <label for="id_last_name">Last name:</label>
+        <input type="text" name="last_name" id="id_last_name">
+
+        <label for="id_address">Address:</label>
+        <input type="text" name="address" id="id_address">
+
+        <label for="id_email">Email:</label>
+        <input type="email" name="email" id="id_email">
+
+        <label for="id_phone_number">Phone number:</label>
+        <input type="text" name="phone_number" id="id_phone_number">
+
+        <label for="id_driver_license">Driver license:</label>
+        <input type="text" name="driver_license" id="id_driver_license">
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

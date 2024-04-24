@@ -1,10 +1,35 @@
 {% extends "__base__.html" %}
 {% block title %}Modyfikuj Klienta{% endblock title %}
 {% block content %}
-    <h1>Modyfikuj Klienta</h1>
+<div class="container">
+    <h1 class="my-4">Modyfikuj Klienta</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Zapisz zmiany</button>
+        <label for="first_name">Imię:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ client.first_name }}"><br>
+
+        <label for="last_name">Nazwisko:</label>
+        <input type="text" id="last_name" name="last_name" value="{{ client.last_name }}"><br>
+
+        <label for="address">Adres:</label>
+        <input type="text" id="address" name="address" value="{{ client.address }}"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ client.email }}"><br>
+
+        <label for="phone_number">Numer telefonu:</label>
+        <input type="text" id="phone_number" name="phone_number" value="{{ client.phone_number }}"><br>
+
+        <label for="driver_license">Numer prawa jazdy:</label>
+        <input type="text" id="driver_license" name="driver_license" value="{{ client.driver_license }}"><br>
+
+        <label for="max_rental_days">Maksymalna liczba dni wypożyczenia:</label>
+        <input type="number" id="max_rental_days" name="max_rental_days" value="{{ client.max_rental_days }}"><br>
+
+        <label for="is_vip">Czy jest VIP-em:</label>
+        <input type="checkbox" id="is_vip" name="is_vip" {% if client.is_vip %}checked{% endif %}><br>
+
+        <button type="submit" class="btn btn-primary">Zapisz Klienta</button>
     </form>
+</div>
 {% endblock content %}

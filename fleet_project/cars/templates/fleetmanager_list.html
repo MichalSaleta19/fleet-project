@@ -3,9 +3,9 @@
 {% block content %}
     <h1>Lista Menedżerów Floty</h1>
     <ul>
-        {% for fleetmanager in object_list %}
-            <li>{{ fleetmanager }}</li>
-            <form action="{% url 'fleetmanager_delete' fleetmanager.pk %}" method="post" style="display: inline;">
+        {% for fleet_manager in fleet_managers %}
+            <li>{{ fleet_manager }}</li>
+            <form action="{% url 'fleetmanager_delete' fleet_manager.pk %}" method="post" style="display: inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Usuń</button>
             </form>

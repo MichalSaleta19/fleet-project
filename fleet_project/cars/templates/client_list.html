@@ -9,10 +9,8 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Usuń</button>
             </form>
+            <a href="{% url 'client_modify' client.pk %}" class="btn btn-primary">Edytuj</a>
         </li>
-        {% if car_id %}
-        <a href="{% url 'order_add' car_id=car_id client_id=client.pk %}" class="btn btn-primary">Złóż zamówienie</a>
-        {% endif %}
     {% empty %}
         <li>Brak klientów</li>
     {% endfor %}

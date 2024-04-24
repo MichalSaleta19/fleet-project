@@ -5,7 +5,7 @@
   --link-color: #5900ff;
   --light-link-color: #f0f0f0;
   --background-color: #663399;
-  --lighter-background-color: #333333;
+  --lighter-background-color: #ffd700;
   --lighter-text-color: #aaaaaa;
   --text-color-dark: #000000;
   --blue: #3d6cb9;
@@ -29,6 +29,10 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   background: repeat url("/static/images/image.png");
+}
+
+.custom-form label {
+    color: var(--gold); /* Ustawienie koloru etykiet */
 }
 
 p {
@@ -95,12 +99,12 @@ hr {
   min-height: 82.9vh;
 }
 
-.text-color-darker {
-  color: var(--background-color);
+.text-color-gold {
+  color: var(--gold);
 }
 
 .text-color-lighter {
-  color: var(--lighter-text-color);
+  color: var(--gold);
 }
 
 .color-header {
@@ -188,7 +192,7 @@ margin: 0 auto !important;
 .carousel-control-prev-icon:after {
   content: '<';
   font-size: 55px;
-  color: var(--text-color-dark);
+  color: var(--gold);
 }
 
 .carousel-caption {
@@ -196,7 +200,7 @@ margin: 0 auto !important;
   left: 0 !important;
   right: 0 !important;
   font-weight: 600;
-  color: var(--text-color-dark) !important;
+  color: var(--gold) !important;
 }
 
 /*------------------------------*/
@@ -213,27 +217,13 @@ margin: 0 auto !important;
 /*------------------------------*/
 
 .details {
-  color: var(--lighter-background-color);
+  color: var(--gold);
 }
 
 .icon-details {
   padding: 2rem 0;
   font-size: 4rem;
-  color: var(--lighter-text-color);
-}
-
-/*------------------------------*/
-/*---- Newsletter section----*/
-/*------------------------------*/
-
-.newsletter-section .form-control {
-  height: 58px;
-}
-
-.newsletter-section {
-  background: var(--lighter-background-color);
-  color: var(--light-link-color);
-  padding: 20px;
+  color: var(--gold);
 }
 
 /*------------------------------*/
@@ -293,7 +283,7 @@ margin: 0 auto !important;
 .icon-users {
   font-size: 3rem;
   padding: 0 5px 0 20px;
-  color: var(--link-color);
+  color: var(--gold);
 }
 
 .orange-line {
@@ -439,7 +429,7 @@ margin: 0 auto !important;
   margin: 20px 0;
 }
 .dashboard-content-title span {
-  color: var(--link-color);
+  color: var(--gold);
 }
 
 /*------------------------------*/
