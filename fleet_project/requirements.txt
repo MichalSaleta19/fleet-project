@@ -6,6 +6,7 @@ packaging==24.0
 pluggy==1.5.0
 psycopg2-binary==2.9.9
 pytest==8.1.1
+pytest_django==4.8.0
 rules @ git+https://github.com/dfunckt/django-rules.git@5ed287ba6c85914d033ce7ea5aa341b0c0158a7b
 sqlparse==0.4.4
 tomli==2.0.1
