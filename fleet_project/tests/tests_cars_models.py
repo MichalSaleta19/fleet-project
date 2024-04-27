@@ -3,7 +3,6 @@ import pytest_django
 from cars.models import Car, FleetUser, Client, Driver, FleetManager
 
 
-
 @pytest.mark.django_db
 def test_create_one_fleet_user(one_fleet_user):
     fleetuser = FleetUser.objects.get(id=one_fleet_user.id)
@@ -50,7 +49,6 @@ def test_create_one_driver(one_driver):
     assert driver.phone_number == "444111555"
     assert driver.driver_license == "1526/7589/745896"
     assert driver.hire_date == "2020-01-01"
-
 
 
 @pytest.mark.django_db
@@ -115,7 +113,6 @@ def test_create_one_service_history(one_service_history):
     assert service_history.service_date == "2024-01-15"
     assert service_history.description == "Oil change, break fluid change"
     assert service_history.cost == 600
-
 
 
 @pytest.mark.django_db

@@ -20,6 +20,8 @@ def get_car_availability(car_id: int) -> List[Tuple[datetime.date, datetime.date
 
     availability_dict = {}
     for availability in car_availability:
-        availability_dict[(availability.start_date, availability.end_date)] = availability.status
+        availability_dict[(availability.start_date, availability.end_date)] = (
+            availability.status
+        )
 
     return availability_dict
