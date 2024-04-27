@@ -171,3 +171,11 @@ def test_car_delete_view_with_driver_permission(client: Client, one_car, one_dri
     assert response.status_code == 403  # Is returning code 403 (no permissions)
 
 
+@pytest.mark.django_db
+def test_car_details_view(client: Client, one_car):
+    url = reverse('car_details', args=[one_car.id])
+
+    response = client.get(url)  # GET to get details site
+    assert response.status_code == 200  # Is response OK
+    assert 'car' in response.context  # Is car in context
+    assert response.context['car'] == one_car  # Is car from context same as one_car from fixture
